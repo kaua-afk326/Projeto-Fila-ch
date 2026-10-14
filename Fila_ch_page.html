@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Jalin Habey</title>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <div class="brand">
+                <div class="brand-icon" aria-hidden="true">+</div>
+                <div>
+                    <h1>Hospital Jalin Habey</h1>
+                    <p>Atendimento humano e seguro</p>
+                </div>
+            </div>
+            <a class="header-link" href="#atendimento">Atendimento</a>
+        </div>
+    </header>
+    
+    <main>
+        <section class="hero" id="atendimento">
+            <div>
+                <span class="eyebrow">Seu cuidado começa aqui</span>
+                <h2>Uma experiência de atendimento com mais clareza e confiança.</h2>
+                <p class="intro">Utilize os campos abaixo para informar seu nome, suas condições e o atendimento desejado.</p>
+                <div class="quick-info">
+                    <span class="info-pill">Suporte de qualidade</span>
+                    <span class="info-pill">Atendimento humano</span>
+                    <span class="info-pill">Informações seguras</span>
+                </div>
+            </div>
+
+            <div class="image-card" aria-label="Espaço para imagem do atendimento">
+                <div class="image-placeholder">
+                    <span aria-hidden="true">✚</span>
+                    <strong>Imagem do atendimento</strong>
+                    <small>Adicione sua imagem aqui</small>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-card" aria-labelledby="form-title">
+            <h3 id="form-title">Dados para atendimento</h3>
+            <p>Preencha os campos abaixo com as informações solicitadas.</p>
+            <form action="/cadastro" method="post">
+                <div class="form-grid">
+                    <div>
+                        <label for="nome">Nome completo</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+                    </div>
+                    <div>
+                        <label for="sintoma">Sintoma ou condição</label>
+                        <input type="text" id="sintoma" name="sintoma" placeholder="Ex.: dor de cabeça, febre...">
+                    </div>
+                    <div class="full-width">
+                        <label for="observacoes">Observações</label>
+                        <textarea id="observacoes" name="observacoes" placeholder="Descreva qualquer informação importante para o atendimento"></textarea>
+                    </div>
+                </div>
+                <button class="submit-button" type="submit">Enviar dados</button>
+            </form>
+        </section>
+    </main>
+
+    <footer><p>Hospital Jalin Habey</p></footer>
+</body>
+    <style>
+        :root {
+            --azul: #0b5f91;
+            --azul-escuro: #073b59;
+            --verde: #2aa67d;
+            --cinza: #eef5f7;
+            --branco: #ffffff;
+            --texto: #183746;
+            --muted: #617984;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            color: var(--texto);
+            background: linear-gradient(135deg, #f4fbfd 0%, #e7f6f1 100%);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .site-header {
+            padding: 22px 7vw;
+            color: var(--branco);
+            background: var(--azul-escuro);
+            box-shadow: 0 4px 20px rgba(7, 59, 89, 0.18);
+        }
+        .header-content { display: flex; align-items: center; justify-content: space-between; max-width: 1180px; margin: 0 auto; }
+        .brand { display: flex; align-items: center; gap: 14px; }
+        .brand-icon {
+            display: grid;
+            width: 54px;
+            height: 54px;
+            place-items: center;
+            color: var(--branco);
+            background: var(--verde);
+            border-radius: 16px;
+            font-size: 1.7rem;
+        }
+        .brand h1 { margin: 0; font-size: clamp(1.25rem, 2.5vw, 1.8rem); }
+        .brand p { margin: 4px 0 0; color: #cce8f0; font-size: 0.9rem; }
+        .header-link { padding: 11px 20px; color: var(--branco); border: 1px solid rgba(255,255,255,.45); border-radius: 30px; text-decoration: none; font-weight: 700; }
+        main { width: min(1180px, 90vw); margin: 0 auto; padding: 58px 0 80px; }
+        .hero { display: grid; grid-template-columns: 1.05fr .95fr; gap: 60px; align-items: center; }
+        .eyebrow { display: inline-block; margin-bottom: 12px; color: var(--verde); font-size: .8rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+        h2 { margin: 0; color: var(--azul-escuro); font-size: clamp(2rem, 5vw, 4rem); line-height: 1.08; }
+        .intro { max-width: 610px; margin: 20px 0 28px; color: var(--muted); font-size: 1.08rem; line-height: 1.7; }
+        .quick-info { display: flex; flex-wrap: wrap; gap: 12px; }
+        .info-pill { padding: 10px 15px; color: var(--azul-escuro); background: rgba(255,255,255,.75); border: 1px solid #d9e9ed; border-radius: 999px; font-size: .9rem; font-weight: 700; }
+
+        .image-card {
+            position: relative;
+            display: flex;
+            min-height: 390px;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(145deg, #d8eef4, #dff3ec);
+            border: 8px solid var(--branco);
+            border-radius: 30px;
+            box-shadow: 0 20px 55px rgba(14,92,126,.16);
+        }
+        .image-card::before { position: absolute; width: 230px; height: 230px; background: rgba(42,166,125,.13); border-radius: 50%; content: ""; }
+        .image-placeholder { position: relative; display: flex; width: 190px; height: 190px; flex-direction: column; align-items: center; justify-content: center; color: var(--azul); background: var(--branco); border: 2px dashed #7cb9c9; border-radius: 50%; text-align: center; }
+        .image-placeholder span { font-size: 2.6rem; }
+        .image-placeholder strong { margin-top: 8px; font-size: .95rem; }
+        .image-placeholder small { margin-top: 4px; color: var(--muted); }
+
+        .form-card { margin-top: 58px; padding: 38px; background: rgba(255,255,255,.92); border: 1px solid #dcecef; border-radius: 24px; box-shadow: 0 18px 50px rgba(22,71,91,.1); }
+        .form-card h3 { margin: 0 0 7px; color: var(--azul-escuro); font-size: 1.6rem; }
+        .form-card > p { margin: 0 0 26px; color: var(--muted); }
+        .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; }
+        label { display: block; margin-bottom: 8px; color: var(--azul-escuro); font-weight: 700; }
+        input, textarea { width: 100%; padding: 15px 17px; color: var(--texto); background: var(--cinza); border: 2px solid transparent; border-radius: 12px; outline: none; transition: border-color .2s, box-shadow .2s; }
+        input:focus, textarea:focus { background: var(--branco); border-color: var(--azul); box-shadow: 0 0 0 4px rgba(11,95,145,.12); }
+        textarea { min-height: 125px; resize: vertical; }
+        .full-width { grid-column: 1 / -1; }
+        .submit-button { margin-top: 22px; padding: 14px 30px; color: var(--branco); background: var(--verde); border: 0; border-radius: 12px; cursor: pointer; font-size: 1rem; font-weight: 800; transition: transform .2s, background .2s; }
+        .submit-button:hover { background: #218c68; transform: translateY(-2px); }
+        footer { padding: 28px 20px; color: var(--branco); background: var(--azul-escuro); text-align: center; }
+        footer p { margin: 0; font-size: 1.05rem; font-weight: 700; }
+
+        @media (max-width: 780px) {
+            .header-link { display: none; }
+            .hero { grid-template-columns: 1fr; gap: 35px; }
+            .image-card { min-height: 310px; }
+            .form-grid { grid-template-columns: 1fr; }
+            .full-width { grid-column: auto; }
+        }
+    </style>
+</html>

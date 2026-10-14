@@ -12,25 +12,49 @@ if genero == "mulher":
     if resposta == "sim":
         gravida = True
 
+# Os sintomas são normalizados para permitir buscas por palavras-chave,
+# inclusive quando o usuário digita mais de um sinal no mesmo campo.
+sintoma_normalizado = " ".join(triagem.lower().split())
+
+# Sintomas de maior risco: exigem atendimento immediado.
+sintomas_muito_graves = (
+    "dor no peito", "falta de ar", "desmaio", "paralise", "desmaio",
+    "sangue no vomito", "vomito sangue", "vomito constante",
+    "confusão", "desidratação", "temperatura muito alta",
+    "dor intensa", "dor súbita", "cessação de respiração"
+)
+
+# Sintomas graves que precisam de avaliação urgente.
+sintomas_graves = (
+    "febre alta", "fratura", "lesão importante", "lesão no braço",
+    "lesão na perna", "vomito", "diarréia", "dor de cabeça intensa",
+    "dor forte", "sangue", "inchaço importante", "dor abdominal"
+)
+
+# Sintomas moderados.
+sintomas_moderados = (
+    "febre", "enjoo", "dor de cabeça", "coriza", "espirro", "gripe",
+    "dor muscular", "dor de barriga", "cansaço", "tontura"
+)
+
+# Sintomas leves e sinais de acompanhamento.
+sintomas_leves = (
+    "mialgia", "dor de garganta", "nariz congestionado", "estômago ruim",
+    "perda de apetite", "calor", "só roxo"
+)
+
 prioridade = 1
 
-# Sintomas muito graves
-if triagem.lower() in ["dor no peito", "falta de ar", "desmaio"]:
+if any(sintoma in sintoma_normalizado for sintoma in sintomas_muito_graves):
     prioridade = 10
-
-# Sintomas graves
-elif triagem.lower() in ["febre alta", "fratura", "dor intensa"]:
+elif any(sintoma in sintoma_normalizado for sintoma in sintomas_graves):
     prioridade = 8
-
-# Sintomas moderados
-elif triagem.lower() in ["febre", "enjoo", "dor de cabeça"]:
+elif any(sintoma in sintoma_normalizado for sintoma in sintomas_moderados):
     prioridade = 5
-
-# Sintomas leves
-elif triagem.lower() in ["coriza", "espirro", "gripe"]:
+elif any(sintoma in sintoma_normalizado for sintoma in sintomas_leves):
     prioridade = 3
 
-# Ajustes
+# Ajustes adicionais de acordo com a idade e a condição gestacional.
 if idade >= 65:
     prioridade += 1
 
